@@ -4,5 +4,8 @@
         "crypto_recovery_agent"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "redHatDependencyAnalytics.enablePythonBestEffortsInstallation": true,
+    "redHatDependencyAnalytics.usePipDepTree": true,
+    "redHatDependencyAnalytics.usePythonVirtualEnvironment": true
 }
