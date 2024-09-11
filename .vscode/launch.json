@@ -8,7 +8,7 @@
             "type": "soliditypp",
             "request": "launch",
             "name": "Soliditypp Debug",
-            "program": "${file}"
+            "preLaunchTask": "${file}"
         }
     ]
 }
