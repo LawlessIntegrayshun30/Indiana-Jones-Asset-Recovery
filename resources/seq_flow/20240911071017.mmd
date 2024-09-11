@@ -1,0 +1,19 @@
+
+sequenceDiagram
+    participant M as Main
+    participant SCI as SmartContractInteraction
+    participant WS as WebScraper
+    participant CR as CurrencyRecovery
+    participant S as Scheduler
+    M->>SCI: connect_to_contract('contract_address')
+    M->>S: schedule_task(CR.recover_lost_currencies, 'interval', 60)
+    loop Every Minute
+        S->>WS: scrape_for_currencies('target_url')
+        WS-->>CR: return currencies_info
+        CR->>SCI: execute_contract_function('recover_funds', [currencies_info])
+        SCI-->>CR: return transaction_receipt
+        CR->>CR: recover_lost_currencies(currencies_info)
+        CR-->>M: return recovered_currencies
+    end
+    M->>CR: display_recovered_currencies()
+    CR-->>M: return recovered_currencies
